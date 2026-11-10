@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#F6F3EC">
+<title>Поездка</title>
+<style>
+:root{--m:#2D3E6B;--t:#D9DEEE}
+*{box-sizing:border-box}body{margin:0;background:#F6F3EC;color:#1B1B1F;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{text-decoration:none;color:inherit}
+#app{max-width:430px;margin:0 auto;padding:18px 20px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+.k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5B5B63;font-weight:600}
+h1{margin:0;font-size:30px;line-height:1.1}h2{margin:0;font-size:18px}.sub{font-size:13px;color:#3A3A42;margin:4px 0 0}
+.bc{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;font-weight:600;color:var(--m)}.bc a{display:flex;align-items:center;min-height:44px}.bc span{color:#5B5B63}
+.seg{display:flex;gap:3px;height:8px}.seg i{border-radius:4px;background:#D9D3C5}.seg i.on{background:var(--m)}
+.lbl{display:flex;justify-content:space-between;font-size:11px;color:#5B5B63}
+.sw{display:flex;align-items:center;justify-content:center;gap:6px;min-height:64px;flex-wrap:wrap}
+.sw a{display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:700;background:#E8E2D3;color:#3A3A42;width:40px;height:40px;font-size:13px}
+.sw a.c1{width:48px;height:48px;font-size:16px;background:var(--t);color:var(--m)}.sw a.c0{width:60px;height:60px;font-size:22px;background:var(--m);color:#fff}
+.tl{position:relative;display:flex;flex-direction:column;gap:10px;padding-left:34px}
+.tl:before{content:"";position:absolute;left:11px;top:12px;bottom:12px;width:2px;background:var(--m);opacity:.35}
+.st{position:relative;background:var(--t);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.st b{position:absolute;left:-34px;top:12px;width:24px;height:24px;border-radius:12px;background:var(--m);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.st p{margin:0;font-size:15px;font-weight:600}
+.mb{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border:1.5px solid var(--m);border-radius:12px;font-size:13px;font-weight:600;color:var(--m);background:#fff;width:max-content}
+.tk{background:var(--m);color:#fff;border-radius:14px;padding:14px;display:flex;justify-content:space-between;gap:12px;font-size:13px;line-height:1.4}.tk .k,.tk p{color:#E4E8F5}.tk p{margin:4px 0 0;font-size:12.5px}.tk b{font-size:20px;white-space:nowrap}
+.nt{background:var(--t);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:600}
+.ft{display:flex;gap:8px;flex-wrap:wrap;font-size:12px}.ft span,.ft a{background:#E8E2D3;border-radius:10px;padding:6px 10px;min-height:32px;display:flex;align-items:center}.ft a{color:var(--m);font-weight:600;cursor:pointer}
+.wd,.gr{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.wd{font-size:11px;color:#5B5B63;text-align:center;font-weight:600}
+.c{height:46px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--cm);background:var(--ct)}.c small{font-size:10px;font-weight:600}
+.c.td,.wi.td{outline:2.5px solid #1B1B1F;outline-offset:1px}
+.rt{display:flex;gap:3px}.rt a{border-radius:10px;padding:8px 6px;color:#fff;font-size:11px;font-weight:600;line-height:1.3;background:var(--cm);min-width:0}
+.lc{display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:16px;padding:14px 16px;background:var(--ct);color:var(--cm)}.lc h3{margin:0;font-size:18px}.lc p{margin:3px 0 0;font-size:12px;line-height:1.4}.lc .d{font-size:24px;font-weight:700;white-space:nowrap}
+.go{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;background:var(--m);color:#fff;font-weight:700;font-size:14px;border:0;width:100%;font-family:inherit}
+#wh{position:relative;height:340px;overflow-y:auto;scroll-snap-type:y mandatory;padding:138px 0;display:flex;flex-direction:column;gap:8px;scrollbar-width:none}#wh::-webkit-scrollbar{display:none}
+.wi{flex:none;height:64px;scroll-snap-align:center;border-radius:14px;background:#EFEBE0;color:#4A4A52;display:flex;align-items:center;gap:12px;padding:0 16px;font-size:15px;transition:background .15s}.wi b{width:52px;white-space:nowrap}.wi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wi.on{background:var(--m);color:#fff;font-weight:700}
+#pn{background:var(--t);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.4}#pn strong{font-size:18px}
+.tr{background:#fff;border-radius:14px;padding:6px 14px}.tr div{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:8px 0;border-bottom:1px solid #E8E2D3}.tr div:last-child{border:0}
+.im{background:#fff;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.45}
+.im textarea{width:100%;height:110px;border:1.5px solid #D9D3C5;border-radius:10px;padding:8px;font:12px monospace}
+.im input[type=file]{font-size:14px}.er{color:#A32010;font-weight:600;font-size:13px}
+.fb{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--m);font-weight:600}.fb a{min-height:36px;display:flex;align-items:center;cursor:pointer}
+</style></head><body><div id="app"></div>
+<script>
+const K='trip-plan-v1',WD=['вс','пн','вт','ср','чт','пт','сб'];
+const P=[['#2D3E6B','#D9DEEE'],['#3F7D5C','#D5E8DC'],['#C8412B','#F6D9D1'],['#8A5A00','#F3E3BE'],['#6B3F8A','#E6D9F0'],['#007A87','#D2ECEF']];
+let D=[],L=[],tn=0;
+const $=q=>document.querySelector(q),A=$('#app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function csv(t){const l=t.split('\n')[0],dl=['\t',';',','].map(d=>[d,l.split(d).length]).sort((a,b)=>b[1]-a[1])[0][0];
+const r=[];let w=[],f='',q=0;for(let i=0;i<t.length;i++){const c=t[i];
+if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=0}else f+=c}
+else if(c=='"')q=1;else if(c==dl){w.push(f);f=''}
+else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;w.push(f);r.push(w);w=[];f=''}else f+=c}
+w.push(f);r.push(w);return r.filter(x=>x.some(y=>y.trim()))}
+function build(t){
+if(t.includes('\uFFFD'))throw Error('Файл не в UTF-8. Сохраните как «CSV UTF-8».');
+const r=csv(t),h=r[0].map(x=>x.trim().toLowerCase().replace(/^\uFEFF/,'')),ix=k=>h.indexOf(k);
+['day','city','title'].forEach(k=>{if(ix(k)<0)throw Error('Нет колонки «'+k+'». Смотрите plan.example.csv')});
+const g=(w,k)=>ix(k)<0?'':(w[ix(k)]||'').trim(),cities=[];
+const nd=r.slice(1).map((w,i)=>{const m=g(w,'day').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+if(!m)throw Error('Строка '+(i+2)+': дата должна быть в формате ГГГГ-ММ-ДД');
+const city=g(w,'city');if(!cities.includes(city))cities.push(city);
+return{dt:new Date(+m[1],m[2]-1,+m[3]),city,ci:cities.indexOf(city)%P.length,hotel:g(w,'hotel'),hq:g(w,'hotel_map')||g(w,'hotel'),title:g(w,'title'),food:g(w,'food'),
+st:['m','d','e'].map(p=>({t:g(w,p+'_text'),f:g(w,p+'_from'),to:g(w,p+'_to'),m:g(w,p+'_mode')||'transit'})),tk:g(w,'ticket'),pr:g(w,'price'),buy:g(w,'buy'),nt:g(w,'note')}});
+if(!nd.length)throw Error('В файле нет строк с днями');
+D=nd;L=[];D.forEach((d,i)=>{const l=L[L.length-1];if(l&&l.city==d.city&&l.hotel==d.hotel)l.b=i+1;else L.push({city:d.city,hotel:d.hotel,ci:d.ci,a:i+1,b:i+1})});
+const t0=new Date();t0.setHours(0,0,0,0);tn=0;D.forEach((d,i)=>{if(+d.dt==+t0)tn=i+1})}
+const loc=n=>L.findIndex(l=>n>=l.a&&n<=l.b),dt=n=>D[n-1].dt.getDate()+' '+WD[D[n-1].dt.getDay()];
+const cs=c=>`--cm:${P[c][0]};--ct:${P[c][1]}`,num=n=>D[n-1].dt.getDate();
+const mp=(o,d,m)=>`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(o)}&destination=${encodeURIComponent(d)}&travelmode=${['walking','driving','bicycling'].includes(m)?m:'transit'}`;
+const ML={walking:'Пешком',driving:'На машине',bicycling:'На велосипеде'};
+const mon=d=>d.toLocaleDateString('ru',{month:'long',year:'numeric'});
+function rng(a,b){const x=D[a-1].dt,y=D[b-1].dt;return x.getMonth()==y.getMonth()?x.getDate()+'–'+y.getDate():x.getDate()+'.'+(x.getMonth()+1)+'–'+y.getDate()+'.'+(y.getMonth()+1)}
+const seg=i=>'<div class="seg">'+L.map((l,j)=>`<i${j==i?' class=on':''} style="flex:${l.b-l.a+1}"></i>`).join('')+'</div><div class="lbl">'+L.map(l=>`<span>${esc(l.city)}</span>`).join('')+'</div>';
+function cell(n){return `<a class="c${n==tn?' td':''}" style="${cs(D[n-1].ci)}" href="#/d/${n}">${num(n)}<small>${WD[D[n-1].dt.getDay()]}</small></a>`}
+function imp(){return `<div><div class="k">Первый запуск</div><h1>Загрузите план</h1></div>
+<div class="im"><span>В приложении нет данных поездки. Выберите файл плана (CSV в UTF-8) из «Файлов», почты или iCloud. Данные сохранятся только на этом телефоне.</span>
+<input type="file" id="f" accept=".csv,.tsv,.txt,text/*"><span>или вставьте текст файла:</span><textarea id="tx"></textarea>
+<button class="go" id="ok">Загрузить из текста</button><div class="er" id="er"></div>
+<a class="fb" href="plan.example.csv" download style="min-height:36px;display:flex;align-items:center">Скачать пример файла (plan.example.csv)</a></div>`}
+function cal(){const a=D[0].dt,cn=[...new Set(D.map(d=>d.city))];
+return `<div><div class="k">${mon(a)} · ${rng(1,D.length)}</div><h1>${esc(cn.join(' · '))}</h1><p class="sub">${D.length} дн.</p></div>
+<div class="rt">${L.map((l,i)=>`<a href="#/l/${i}" style="${cs(l.ci)};flex:${l.b-l.a+1}">${esc(l.city)}<br>${rng(l.a,l.b)}</a>`).join('')}</div>
+<div class="wd">${['пн','вт','ср','чт','пт','сб','вс'].map(x=>`<span>${x}</span>`).join('')}</div>
+<div class="gr">${'<span></span>'.repeat((a.getDay()+6)%7)}${D.map((_,i)=>cell(i+1)).join('')}</div>
+${tn?`<a class="go" href="#/d/${tn}">Сегодня: ${dt(tn)} ›</a>`:''}
+<h2>Локации</h2>${L.map((l,i)=>`<a class="lc" style="${cs(l.ci)}" href="#/l/${i}"><div><h3>${esc(l.city)}</h3><p>${esc(l.hotel)} · ${l.b-l.a+1} дн.</p></div><div class="d">${rng(l.a,l.b)}</div></a>`).join('')}
+<div class="fb"><a href="#/import">Заменить файл</a><a data-a="dl">Скачать CSV</a><a data-a="rm">Удалить данные</a></div>`}
+function locv(i){const l=L[i],ds=[...Array(l.b-l.a+1)].map((_,k)=>l.a+k),seen={};
+const tr=ds.map(n=>D[n-1]).filter(d=>d.tk&&d.tk!='—'&&!seen[d.tk]&&(seen[d.tk]=1)).map(d=>`<div><span>${esc(d.tk)}</span><b>${esc(d.pr)}</b></div>`).join('');
+return `<div class="bc"><a href="#/">← Календарь</a></div><div><div class="k">Локация · ${ds.length} дн.</div><h1>${esc(l.city)}, ${rng(l.a,l.b)}</h1><p class="sub">${esc(l.hotel)}</p></div>
+<div class="gr">${ds.map(cell).join('')}</div>
+<div class="k">Колесо дней · тяните вверх и вниз</div><div id="wh">${ds.map(n=>`<div class="wi${n==tn?' td':''}" data-n="${n}"><b>${dt(n)}</b><span>${esc(D[n-1].title)}</span></div>`).join('')}</div>
+<div id="pn"></div>${tr?`<div class="k">Билеты в этой локации</div><div class="tr">${tr}</div>`:''}`}
+function wheel(){const w=$('#wh'),it=[...w.children];let cur=-1;
+const pn=n=>{const d=D[n-1];$('#pn').innerHTML=`<div class="k">${dt(n)} · день ${n}</div><strong>${esc(d.title)}</strong><span>${d.st.filter(s=>s.t).map(s=>esc(s.t)).join(' · ')}</span><span>${esc(d.food)}</span><a class="go" href="#/d/${n}">Открыть день ›</a>`};
+const upd=()=>{const r=w.getBoundingClientRect(),mid=r.top+r.height/2;let b=0,bd=1e9;it.forEach((e,i)=>{const q=e.getBoundingClientRect(),d=Math.abs(q.top+q.height/2-mid);e.style.transform=`scale(${Math.max(.74,1-d/380)})`;if(d<bd){bd=d;b=i}});if(b!=cur){cur=b;it.forEach((e,i)=>e.classList.toggle('on',i==b));pn(+it[b].dataset.n)}};
+const to=(e,sm)=>w.scrollTo({top:e.offsetTop-(w.clientHeight-e.offsetHeight)/2,behavior:sm?'smooth':'auto'});
+it.forEach(e=>e.onclick=()=>to(e,1));w.onscroll=()=>requestAnimationFrame(upd);
+to(it.find(e=>+e.dataset.n==tn)||it[0]);upd()}
+function dayv(n){const d=D[n-1],i=loc(n),l=L[i],ds=[...Array(l.b-l.a+1)].map((_,k)=>l.a+k);
+const sts=d.st.map((x,j)=>x.t?`<div class="st"><b>${j+1}</b><div class="k">${['Утро','День','Вечер'][j]}</div><p>${esc(x.t)}</p>${x.f&&x.to?`<a class="mb" target="_blank" rel="noopener" href="${mp(x.f,x.to,x.m)}">${ML[x.m]||'Транзит'} ↗</a>`:''}</div>`:'').join('');
+return `<div class="bc"><a href="#/">Календарь</a><span>›</span><a href="#/l/${i}">${esc(l.city)} ${rng(l.a,l.b)}</a></div>
+<div class="sw">${ds.map(x=>`<a class="c${Math.min(Math.abs(x-n),2)}" href="#/d/${x}">${num(x)}</a>`).join('')}</div>
+<div class="k">День ${n} из ${D.length}</div>${seg(i)}
+<div><div class="k">${dt(n)} · ${esc(l.city)}${l.hotel?' · '+esc(l.hotel):''}</div><h1>${esc(d.title)}</h1></div>
+<div class="tl">${sts}</div>
+<div class="ft">${d.food?`<span>${esc(d.food)}</span>`:''}${d.hq?`<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hq)}">Отель на карте ↗</a>`:''}</div>
+${d.tk&&d.tk!='—'?`<div class="tk"><div><div class="k">Билет</div>${esc(d.tk)}<p>${esc(d.buy)}</p></div><b>${esc(d.pr)}</b></div>`:''}${d.nt?`<div class="nt">${esc(d.nt)}</div>`:''}
+<div class="ft">${n>1?`<a href="#/d/${n-1}">← ${dt(n-1)}</a>`:''}${n<D.length?`<a href="#/d/${n+1}">${dt(n+1)} →</a>`:''}</div>`}
+function route(){const h=(location.hash||'#/').split('/'),r=h[1],x=+h[2];let ci=0,html,im=0;
+if(r=='import'||!D.length){html=imp();im=1}
+else if(r=='d'&&x>=1&&x<=D.length){ci=D[x-1].ci;html=dayv(x)}
+else if(r=='l'&&x>=0&&x<L.length){ci=L[x].ci;html=locv(x)}else html=cal();
+document.documentElement.style.setProperty('--m',P[ci][0]);document.documentElement.style.setProperty('--t',P[ci][1]);
+A.innerHTML=html;scrollTo(0,0);if($('#wh'))wheel();
+if(im){const go=t=>{try{build(t);localStorage.setItem(K,t.replace(/^\uFEFF/,''));location.hash='#/'}catch(e){$('#er').textContent=e.message}};
+$('#f').onchange=async e=>{const f=e.target.files[0];if(f)go(await f.text())};$('#ok').onclick=()=>go($('#tx').value)}}
+A.onclick=e=>{const a=e.target.closest('[data-a]');if(!a)return;
+if(a.dataset.a=='dl'){const b=new Blob(['\uFEFF'+localStorage.getItem(K)],{type:'text/csv'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='plan.csv';l.click()}
+if(a.dataset.a=='rm'&&confirm('Удалить план с этого телефона? Файл CSV останется у вас.')){localStorage.removeItem(K);D=[];L=[];location.hash='#/import';route()}};
+(async()=>{let t=null;try{t=localStorage.getItem(K)}catch(e){}
+if(!t)try{const r=await fetch('plan.csv');if(r.ok)t=await r.text()}catch(e){}
+if(t)try{build(t)}catch(e){D=[];L=[]}
+addEventListener('hashchange',route);route()})();
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');
+</script></body></html>

@@ -1,0 +1,4 @@
+﻿day,city,hotel,hotel_map,title,food,m_text,m_from,m_to,m_mode,d_text,d_from,d_to,d_mode,e_text,e_from,e_to,e_mode,ticket,price,buy,note
+2027-05-01,Париж,Hotel A,Hotel A Paris,Прилёт и прогулка,Ужин у отеля,Аэропорт → центр,CDG Airport,Gare du Nord,transit,Заселение,,,,Набережная,Notre-Dame,Eiffel Tower,walking,Билет RER B,11 €,Автомат в аэропорту,Бронь отеля
+2027-05-02,Париж,Hotel A,Hotel A Paris,Лувр,Обед рядом,Метро в Лувр,Hotel A Paris,Louvre,transit,Музей,,,,Назад в отель,Louvre,Hotel A Paris,transit,Metro day pass,8 €,Автомат,Бронь билета
+2027-05-03,Лион,Hotel B,Hotel B Lyon,Переезд в Лион,Бэнто,Вокзал,Hotel A Paris,Gare de Lyon,transit,Поезд TGV,,,,Заселение,Gare Part-Dieu,Hotel B Lyon,transit,Билет TGV,40 €,SNCF Connect,Заселение
